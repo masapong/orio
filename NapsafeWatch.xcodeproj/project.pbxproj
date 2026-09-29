@@ -1,0 +1,391 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04DB04741E66A594728131BA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF64453806574A4236180AA3 /* LocationManager.swift */; };
+		0D4B7BDABE92D7B2284CFB25 /* AlertSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383CFC89E6595784EC1A80B5 /* AlertSettingsView.swift */; };
+		1ADF41AA43CF071A6322842C /* DistanceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DBBCFDD30652C9A3D905F0 /* DistanceFormatter.swift */; };
+		34197B703B1AFD3DED244B8C /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5B72F72B6E0153F08B2C63 /* LocationSearchView.swift */; };
+		5E04D60752A338832E24155F /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = B464836B7E3CE113696397D6 /* Destination.swift */; };
+		614CD5B268AB09EFBF2A86CF /* DestinationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D718B83D487915E3774FA095 /* DestinationStore.swift */; };
+		7121A1104CA1EAE81E5AA90B /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B85D1F55A78F663D1D51A98 /* SessionManager.swift */; };
+		9382A3AA5BC4690D9E1826FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA99240CB7F447E97594FA1E /* Assets.xcassets */; };
+		A82EC338DDC5D7ECEE241C34 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33E59968ADDAAD4A75D66BB /* Session.swift */; };
+		B93255A45513793B2044A2A5 /* MapPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C2AB34B4B5E7DE239A0876 /* MapPreviewView.swift */; };
+		DBB474B2B619920DDE41FD0D /* OrioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A375B2CBCEE4BBC4D65978 /* OrioApp.swift */; };
+		ED5F1C4948D34710AC9F4B24 /* ActiveSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FA76F56ECA1D66D4F8E53 /* ActiveSessionView.swift */; };
+		F17290B4BDB233AFD4E0EA8C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28D383E97FE34661F9B8D0D /* ContentView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		00A375B2CBCEE4BBC4D65978 /* OrioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrioApp.swift; sourceTree = "<group>"; };
+		157E8B6711472095EB387704 /* Orio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		383CFC89E6595784EC1A80B5 /* AlertSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSettingsView.swift; sourceTree = "<group>"; };
+		5B85D1F55A78F663D1D51A98 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		672ACE0E4ECCCE0C90644876 /* Orio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Orio.entitlements; sourceTree = "<group>"; };
+		8E5B72F72B6E0153F08B2C63 /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
+		B464836B7E3CE113696397D6 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
+		BBCEF4BD8732A56E459AD90C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C33E59968ADDAAD4A75D66BB /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		C6C2AB34B4B5E7DE239A0876 /* MapPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPreviewView.swift; sourceTree = "<group>"; };
+		CA99240CB7F447E97594FA1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D0DBBCFDD30652C9A3D905F0 /* DistanceFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceFormatter.swift; sourceTree = "<group>"; };
+		D718B83D487915E3774FA095 /* DestinationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationStore.swift; sourceTree = "<group>"; };
+		DF64453806574A4236180AA3 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		E30FA76F56ECA1D66D4F8E53 /* ActiveSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSessionView.swift; sourceTree = "<group>"; };
+		F28D383E97FE34661F9B8D0D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0FD3666D18C1589FC37051DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				157E8B6711472095EB387704 /* Orio.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A85F9E8EA1C8A239B19A9083 = {
+			isa = PBXGroup;
+			children = (
+				DF5313D2901AA3A9420C44F1 /* Resources */,
+				C8B50FBF0AD47FF9E2EA6FBE /* Sources */,
+				0FD3666D18C1589FC37051DA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C8764CC6966444657A6130D9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D0DBBCFDD30652C9A3D905F0 /* DistanceFormatter.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C8B50FBF0AD47FF9E2EA6FBE /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				00A375B2CBCEE4BBC4D65978 /* OrioApp.swift */,
+				CB9F1366584356176479116C /* Models */,
+				EDD748A57047E935776FD192 /* Services */,
+				C8764CC6966444657A6130D9 /* Utilities */,
+				F31B3388E0383AB9B51A6540 /* Views */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		CB9F1366584356176479116C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B464836B7E3CE113696397D6 /* Destination.swift */,
+				C33E59968ADDAAD4A75D66BB /* Session.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DF5313D2901AA3A9420C44F1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CA99240CB7F447E97594FA1E /* Assets.xcassets */,
+				BBCEF4BD8732A56E459AD90C /* Info.plist */,
+				672ACE0E4ECCCE0C90644876 /* Orio.entitlements */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EDD748A57047E935776FD192 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D718B83D487915E3774FA095 /* DestinationStore.swift */,
+				DF64453806574A4236180AA3 /* LocationManager.swift */,
+				5B85D1F55A78F663D1D51A98 /* SessionManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F31B3388E0383AB9B51A6540 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E30FA76F56ECA1D66D4F8E53 /* ActiveSessionView.swift */,
+				383CFC89E6595784EC1A80B5 /* AlertSettingsView.swift */,
+				F28D383E97FE34661F9B8D0D /* ContentView.swift */,
+				8E5B72F72B6E0153F08B2C63 /* LocationSearchView.swift */,
+				C6C2AB34B4B5E7DE239A0876 /* MapPreviewView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AC6F4C72FD7A2C454574A22E /* Orio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 891C7244F2647BF600B992F3 /* Build configuration list for PBXNativeTarget "Orio" */;
+			buildPhases = (
+				9DE9FD7E6EBB6FDDA22B58A8 /* Sources */,
+				0B705CDA7F39FD1EEB6C2E40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Orio;
+			packageProductDependencies = (
+			);
+			productName = Orio;
+			productReference = 157E8B6711472095EB387704 /* Orio.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4A66B69B9A9F8762DBB11D50 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					AC6F4C72FD7A2C454574A22E = {
+						DevelopmentTeam = 97R97H732K;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 5FC359B45FF2BBE396796C94 /* Build configuration list for PBXProject "Orio" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = A85F9E8EA1C8A239B19A9083;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 0FD3666D18C1589FC37051DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AC6F4C72FD7A2C454574A22E /* Orio */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0B705CDA7F39FD1EEB6C2E40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9382A3AA5BC4690D9E1826FA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9DE9FD7E6EBB6FDDA22B58A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED5F1C4948D34710AC9F4B24 /* ActiveSessionView.swift in Sources */,
+				0D4B7BDABE92D7B2284CFB25 /* AlertSettingsView.swift in Sources */,
+				F17290B4BDB233AFD4E0EA8C /* ContentView.swift in Sources */,
+				5E04D60752A338832E24155F /* Destination.swift in Sources */,
+				614CD5B268AB09EFBF2A86CF /* DestinationStore.swift in Sources */,
+				1ADF41AA43CF071A6322842C /* DistanceFormatter.swift in Sources */,
+				04DB04741E66A594728131BA /* LocationManager.swift in Sources */,
+				34197B703B1AFD3DED244B8C /* LocationSearchView.swift in Sources */,
+				B93255A45513793B2044A2A5 /* MapPreviewView.swift in Sources */,
+				DBB474B2B619920DDE41FD0D /* OrioApp.swift in Sources */,
+				A82EC338DDC5D7ECEE241C34 /* Session.swift in Sources */,
+				7121A1104CA1EAE81E5AA90B /* SessionManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		28C1FEDCA3E2DCC13B52B4FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Resources/Orio.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 97R97H732K;
+				INFOPLIST_FILE = Resources/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.orio.Orio;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = NO;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+		44F4805A16BCA2DA0DAA2D19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		A1C9163CF3AD365BC5E4B57E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Resources/Orio.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 97R97H732K;
+				INFOPLIST_FILE = Resources/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.orio.Orio;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = NO;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		A676C97D11BF14982627DB7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5FC359B45FF2BBE396796C94 /* Build configuration list for PBXProject "Orio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A676C97D11BF14982627DB7C /* Debug */,
+				44F4805A16BCA2DA0DAA2D19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		891C7244F2647BF600B992F3 /* Build configuration list for PBXNativeTarget "Orio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1C9163CF3AD365BC5E4B57E /* Debug */,
+				28C1FEDCA3E2DCC13B52B4FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4A66B69B9A9F8762DBB11D50 /* Project object */;
+}
