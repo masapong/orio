@@ -133,17 +133,20 @@ class DestinationStore: ObservableObject {
     /// Schema 1 gave every station and search result a random UUID, so the same place could be
     /// saved several times under different IDs. Re-key everything with stable IDs and merge.
     private func migrateToStableIDs() {
+        let oldRecent = recent
+        let oldUsage = usage
+
         favorites = Self.uniqued(favorites.map { $0.withStableID() })
 
         recent = Self.uniqued(
-            recent.map { $0.withStableID() }.sorted { $0.lastUsed > $1.lastUsed }
+            oldRecent.map { $0.withStableID() }.sorted { $0.lastUsed > $1.lastUsed }
         )
 
         // Schema 1 only kept 5 "top used" entries and rarely incremented counts, so also count
         // places that only survive in Recent. Copies of the same old entry share one count;
         // different old entries for the same place add up.
         var countsByOldID: [UUID: Destination] = [:]
-        for entry in usage + recent {
+        for entry in oldUsage + oldRecent {
             if let existing = countsByOldID[entry.id] {
                 var merged = existing
                 merged.useCount = max(existing.useCount, entry.useCount, 1)

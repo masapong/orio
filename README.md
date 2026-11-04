@@ -204,6 +204,14 @@ open Orio.xcodeproj
 
 Because Orio relies on GPS motion, you can test it on the simulator or at your desk:
 
+### Unit Tests
+The `OrioTests` target covers the arrival trigger rules, GPS fix filtering, destination ID stability and migration, and active session persistence/restore:
+
+```bash
+xcodebuild test -project Orio.xcodeproj -scheme Orio \
+  -destination 'platform=watchOS Simulator,name=Apple Watch Series 11 (42mm)'
+```
+
 ### 1. Built-in Demo Alert (Debug Mode)
 When running a `DEBUG` build, starting any nap session reveals an orange **Demo Alert** button. Tapping it immediately fires the full wake-up sequence (haptic vibrations, notifications, and alert screen).
 
