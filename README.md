@@ -42,8 +42,8 @@ Traditional time-based alarms fall short on public transit because of unpredicta
 - 🔍 **Station & Location Search**: Integrated with Apple MapKit (`MKLocalSearch`) with 300ms debounce for instant search across train stations, transit hubs, and custom addresses.
 - ⚡ **Smart Station Suggestions**:
   - **Nearby Stations**: Automatically calculates geodesic distances to major transit stations and displays the closest stops.
-  - **Favorites & Most Used**: Star any station directly from the dashboard, trip setup, or context menu for instant 1-tap starts.
-  - **Recent History**: Remembers your recent stops with automatic LRU eviction and swipe/context menu deletion.
+  - **Favorites & Most Used**: Star any station with the star button, a swipe on any row, or from trip setup for instant 1-tap starts.
+  - **Recent History**: Remembers your recent stops with automatic LRU eviction; swipe left on a row to remove it.
 - 🗺️ **Interactive Map Integration**:
   - **Pre-trip Map Preview**: Visualizes your destination pin alongside your current location with custom zoom controls and safe boundary clamping.
   - **Live Dynamic Snapshot**: Background `MKMapSnapshotter` renders an ambient route overview on the active nap HUD.

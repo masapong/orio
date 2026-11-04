@@ -14,24 +14,29 @@ struct ContentView: View {
             if let session = sessionManager.activeSession {
                 ActiveSessionView(session: session)
             } else {
-                ScrollView {
-                    VStack(spacing: 16) {
+                List {
+                    Section {
                         header
+                            .frame(maxWidth: .infinity)
+                            .listRowBackground(Color.clear)
 
                         if locationManager.isAccessDenied {
                             Label("Location is off. Turn it on in Settings to use Orio.", systemImage: "location.slash")
                                 .font(.caption2)
                                 .foregroundStyle(.orange)
+                                .listRowBackground(Color.clear)
                         }
+                    }
 
-                        destinationSection(title: "Nearby", destinations: nearby)
+                    destinationSection(title: "Nearby", destinations: nearby)
 
-                        destinationSection(title: "Favorites", destinations: destinationStore.favorites)
+                    destinationSection(title: "Favorites", destinations: destinationStore.favorites)
 
-                        destinationSection(title: "Most Used", destinations: destinationStore.topUsed)
+                    destinationSection(title: "Most Used", destinations: destinationStore.topUsed)
 
-                        destinationSection(title: "Recent", destinations: destinationStore.recent, isRecent: true)
+                    destinationSection(title: "Recent", destinations: destinationStore.recent, isRecent: true)
 
+                    Section {
                         Button {
                             showSearch = true
                         } label: {
@@ -40,8 +45,8 @@ struct ContentView: View {
                         }
                         .buttonStyle(.borderedProminent)
                         .tint(.cyan)
+                        .listRowBackground(Color.clear)
                     }
-                    .padding()
                 }
                 .navigationTitle("Orio")
                 .navigationBarTitleDisplayMode(.inline)
@@ -107,20 +112,16 @@ struct ContentView: View {
         return []
     }
 
+    @ViewBuilder
     private func destinationSection(title: String, destinations: [Destination], isRecent: Bool = false) -> some View {
-        Group {
-            if !destinations.isEmpty {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(title)
-                        .font(.headline)
-                        .foregroundStyle(.secondary)
-                    ForEach(destinations) { dest in
-                        DestinationRow(
-                            destination: dest,
-                            onDelete: isRecent ? { destinationStore.deleteRecent(dest) } : nil
-                        ) {
-                            selectedDestination = dest
-                        }
+        if !destinations.isEmpty {
+            Section(title) {
+                ForEach(destinations) { dest in
+                    DestinationRow(
+                        destination: dest,
+                        onDelete: isRecent ? { destinationStore.deleteRecent(dest) } : nil
+                    ) {
+                        selectedDestination = dest
                     }
                 }
             }
@@ -166,10 +167,7 @@ struct DestinationRow: View {
             .buttonStyle(.plain)
             .accessibilityLabel(destinationStore.isFavorite(destination) ? "Remove from favorites" : "Add to favorites")
         }
-        .padding(12)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
-        .contextMenu {
+        .swipeActions(edge: .leading) {
             Button {
                 destinationStore.toggleFavorite(destination)
             } label: {
@@ -178,7 +176,10 @@ struct DestinationRow: View {
                     systemImage: destinationStore.isFavorite(destination) ? "star.slash" : "star"
                 )
             }
-            if let onDelete = onDelete {
+            .tint(.yellow)
+        }
+        .swipeActions(edge: .trailing) {
+            if let onDelete {
                 Button(role: .destructive, action: onDelete) {
                     Label("Remove", systemImage: "trash")
                 }
