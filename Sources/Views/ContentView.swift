@@ -18,6 +18,12 @@ struct ContentView: View {
                     VStack(spacing: 16) {
                         header
 
+                        if locationManager.isAccessDenied {
+                            Label("Location is off. Turn it on in Settings to use Orio.", systemImage: "location.slash")
+                                .font(.caption2)
+                                .foregroundStyle(.orange)
+                        }
+
                         destinationSection(title: "Nearby", destinations: nearby)
 
                         destinationSection(title: "Favorites", destinations: destinationStore.favorites)

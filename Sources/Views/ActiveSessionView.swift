@@ -72,7 +72,13 @@ struct ActiveSessionView: View {
                             .multilineTextAlignment(.center)
                     }
 
-                    if let d = currentDistance {
+                    if locationManager.isAccessDenied {
+                        locationProblem(
+                            title: "Location is off",
+                            message: locationManager.errorMessage ?? "Orio can't tell when you're near your stop.",
+                            systemImage: "location.slash.fill"
+                        )
+                    } else if let d = currentDistance {
                         VStack(spacing: 2) {
                             Text(d.formattedDistance)
                                 .font(.system(size: 38, weight: .bold, design: .rounded))
@@ -84,6 +90,14 @@ struct ActiveSessionView: View {
                         .padding(12)
                         .background(.ultraThinMaterial)
                         .clipShape(RoundedRectangle(cornerRadius: 14))
+                    } else if locationManager.authorizationStatus == .notDetermined {
+                        locationProblem(
+                            title: "Waiting for permission",
+                            message: "Allow location access so Orio can track your trip.",
+                            systemImage: "location.circle"
+                        )
+                    } else if let error = locationManager.errorMessage {
+                        locationProblem(title: "Can't get location", message: error, systemImage: "location.slash")
                     } else {
                         ProgressView("Locating...")
                     }
@@ -154,6 +168,24 @@ struct ActiveSessionView: View {
         }
     }
 
+    private func locationProblem(title: String, message: String, systemImage: String) -> some View {
+        VStack(spacing: 4) {
+            Image(systemName: systemImage)
+                .font(.title2)
+                .foregroundStyle(.orange)
+            Text(title)
+                .font(.headline)
+            Text(message)
+                .font(.caption2)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+        }
+        .padding(12)
+        .frame(maxWidth: .infinity)
+        .background(.ultraThinMaterial)
+        .clipShape(RoundedRectangle(cornerRadius: 14))
+    }
+
     private static let weakSignalAfter: TimeInterval = 180
 
     @ViewBuilder
@@ -198,7 +230,6 @@ struct ActiveSessionView: View {
     private func stopSession() {
         napTimer?.invalidate()
         mapUpdateTimer?.invalidate()
-        locationManager.stopTracking()
         sessionManager.endSession()
     }
 

@@ -90,6 +90,10 @@ class LocationManager: NSObject, ObservableObject, @preconcurrency CLLocationMan
         authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse
     }
 
+    var isAccessDenied: Bool {
+        authorizationStatus == .denied || authorizationStatus == .restricted
+    }
+
     // MARK: - CLLocationManagerDelegate
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -97,15 +101,23 @@ class LocationManager: NSObject, ObservableObject, @preconcurrency CLLocationMan
             currentLocation = coarse
         }
         if let precise = LocationFixFilter.proximity.bestFix(in: locations) {
+            errorMessage = nil
             updateDistance(from: precise)
         }
     }
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         authorizationStatus = manager.authorizationStatus
-        if authorizationStatus == .denied || authorizationStatus == .restricted {
-            errorMessage = "Location access denied. Enable in Settings."
-        } else if isAuthorized, targetDestination != nil, !isTracking {
+        if isAccessDenied {
+            if isTracking {
+                isTracking = false
+                manager.stopUpdatingLocation()
+            }
+            errorMessage = "Location access is off. Turn it on in Settings > Privacy & Security > Location Services > Orio."
+            return
+        }
+        errorMessage = nil
+        if isAuthorized, targetDestination != nil, !isTracking {
             beginUpdatesIfAuthorized()
         } else if isAuthorized {
             refreshCurrentLocation()
@@ -113,6 +125,9 @@ class LocationManager: NSObject, ObservableObject, @preconcurrency CLLocationMan
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        // locationUnknown is transient; Core Location keeps trying.
+        if (error as? CLError)?.code == .locationUnknown { return }
+        if isAccessDenied { return }
         errorMessage = error.localizedDescription
     }
 
