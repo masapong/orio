@@ -22,6 +22,7 @@
 		B93255A45513793B2044A2A5 /* MapPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C2AB34B4B5E7DE239A0876 /* MapPreviewView.swift */; };
 		BE941AC71DB32CF7E36409E5 /* LocationFixFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7615F82C98503CC16047162D /* LocationFixFilter.swift */; };
 		DBB474B2B619920DDE41FD0D /* OrioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A375B2CBCEE4BBC4D65978 /* OrioApp.swift */; };
+		EAE444BB911233BE8306A057 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = E34555D6C4FA7298FA446AC8 /* PrivacyInfo.xcprivacy */; };
 		ED5F1C4948D34710AC9F4B24 /* ActiveSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FA76F56ECA1D66D4F8E53 /* ActiveSessionView.swift */; };
 		F17290B4BDB233AFD4E0EA8C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28D383E97FE34661F9B8D0D /* ContentView.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		D718B83D487915E3774FA095 /* DestinationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationStore.swift; sourceTree = "<group>"; };
 		DF64453806574A4236180AA3 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		E30FA76F56ECA1D66D4F8E53 /* ActiveSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSessionView.swift; sourceTree = "<group>"; };
+		E34555D6C4FA7298FA446AC8 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		F28D383E97FE34661F9B8D0D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +114,7 @@
 				CA99240CB7F447E97594FA1E /* Assets.xcassets */,
 				BBCEF4BD8732A56E459AD90C /* Info.plist */,
 				672ACE0E4ECCCE0C90644876 /* Orio.entitlements */,
+				E34555D6C4FA7298FA446AC8 /* PrivacyInfo.xcprivacy */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9382A3AA5BC4690D9E1826FA /* Assets.xcassets in Resources */,
+				EAE444BB911233BE8306A057 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

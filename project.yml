@@ -42,8 +42,6 @@ targets:
     entitlements:
       path: Resources/Orio.entitlements
       properties:
-        com.apple.developer.location.push: true
-        com.apple.developer.maps: true
         com.apple.developer.usernotifications.time-sensitive: true
 
 schemes:
