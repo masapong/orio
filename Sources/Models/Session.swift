@@ -21,7 +21,7 @@ struct NapSession: Identifiable, Codable {
     var alertDistance: Double // meters
     var transportMode: TransportMode
     var startTime: Date
-    var isActive: Bool
+    var alertTriggeredAt: Date?
 
     init(id: UUID = UUID(), destination: Destination, alertDistance: Double = 800, transportMode: TransportMode = .train, startTime: Date = Date()) {
         self.id = id
@@ -29,7 +29,12 @@ struct NapSession: Identifiable, Codable {
         self.alertDistance = alertDistance
         self.transportMode = transportMode
         self.startTime = startTime
-        self.isActive = true
+    }
+
+    /// Nap time ends when the alarm fires, not when the user gets around to stopping it.
+    func napMinutes(endingAt now: Date = Date()) -> Int {
+        let end = alertTriggeredAt ?? now
+        return max(0, Int(end.timeIntervalSince(startTime) / 60))
     }
 
     static let presetAlertDistances: [Double] = [500, 800, 1000, 1500, 2000]

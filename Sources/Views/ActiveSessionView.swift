@@ -65,6 +65,13 @@ struct ActiveSessionView: View {
                     }
                     .padding(.top, 6)
 
+                    if sessionManager.isRestoredSession {
+                        Label("Trip resumed after Orio restarted", systemImage: "arrow.clockwise")
+                            .font(.caption2)
+                            .foregroundStyle(.yellow)
+                            .multilineTextAlignment(.center)
+                    }
+
                     if let d = currentDistance {
                         VStack(spacing: 2) {
                             Text(d.formattedDistance)
