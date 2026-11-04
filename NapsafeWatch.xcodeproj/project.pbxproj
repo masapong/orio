@@ -15,10 +15,12 @@
 		5E04D60752A338832E24155F /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = B464836B7E3CE113696397D6 /* Destination.swift */; };
 		614CD5B268AB09EFBF2A86CF /* DestinationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D718B83D487915E3774FA095 /* DestinationStore.swift */; };
 		7121A1104CA1EAE81E5AA90B /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B85D1F55A78F663D1D51A98 /* SessionManager.swift */; };
+		87AA1DE6BF6CBC2D36CBF39D /* ProximityEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB056325F417887062DB283 /* ProximityEvaluator.swift */; };
 		9382A3AA5BC4690D9E1826FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA99240CB7F447E97594FA1E /* Assets.xcassets */; };
 		944B48031E11AED01F9D0F29 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B049FC7137CB72BB59CC04EC /* SessionStore.swift */; };
 		A82EC338DDC5D7ECEE241C34 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33E59968ADDAAD4A75D66BB /* Session.swift */; };
 		B93255A45513793B2044A2A5 /* MapPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C2AB34B4B5E7DE239A0876 /* MapPreviewView.swift */; };
+		BE941AC71DB32CF7E36409E5 /* LocationFixFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7615F82C98503CC16047162D /* LocationFixFilter.swift */; };
 		DBB474B2B619920DDE41FD0D /* OrioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A375B2CBCEE4BBC4D65978 /* OrioApp.swift */; };
 		ED5F1C4948D34710AC9F4B24 /* ActiveSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FA76F56ECA1D66D4F8E53 /* ActiveSessionView.swift */; };
 		F17290B4BDB233AFD4E0EA8C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28D383E97FE34661F9B8D0D /* ContentView.swift */; };
@@ -27,10 +29,12 @@
 /* Begin PBXFileReference section */
 		00A375B2CBCEE4BBC4D65978 /* OrioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrioApp.swift; sourceTree = "<group>"; };
 		157E8B6711472095EB387704 /* Orio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DB056325F417887062DB283 /* ProximityEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximityEvaluator.swift; sourceTree = "<group>"; };
 		383CFC89E6595784EC1A80B5 /* AlertSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSettingsView.swift; sourceTree = "<group>"; };
 		4942C6C334DF97F453783BFF /* AlarmRuntimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRuntimeController.swift; sourceTree = "<group>"; };
 		5B85D1F55A78F663D1D51A98 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		672ACE0E4ECCCE0C90644876 /* Orio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Orio.entitlements; sourceTree = "<group>"; };
+		7615F82C98503CC16047162D /* LocationFixFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFixFilter.swift; sourceTree = "<group>"; };
 		8E5B72F72B6E0153F08B2C63 /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
 		B049FC7137CB72BB59CC04EC /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		B464836B7E3CE113696397D6 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
@@ -54,6 +58,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		520B92E0FAD3652C3512D5E8 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				7615F82C98503CC16047162D /* LocationFixFilter.swift */,
+				2DB056325F417887062DB283 /* ProximityEvaluator.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
 		A85F9E8EA1C8A239B19A9083 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				00A375B2CBCEE4BBC4D65978 /* OrioApp.swift */,
+				520B92E0FAD3652C3512D5E8 /* Logic */,
 				CB9F1366584356176479116C /* Models */,
 				EDD748A57047E935776FD192 /* Services */,
 				C8764CC6966444657A6130D9 /* Utilities */,
@@ -204,10 +218,12 @@
 				5E04D60752A338832E24155F /* Destination.swift in Sources */,
 				614CD5B268AB09EFBF2A86CF /* DestinationStore.swift in Sources */,
 				1ADF41AA43CF071A6322842C /* DistanceFormatter.swift in Sources */,
+				BE941AC71DB32CF7E36409E5 /* LocationFixFilter.swift in Sources */,
 				04DB04741E66A594728131BA /* LocationManager.swift in Sources */,
 				34197B703B1AFD3DED244B8C /* LocationSearchView.swift in Sources */,
 				B93255A45513793B2044A2A5 /* MapPreviewView.swift in Sources */,
 				DBB474B2B619920DDE41FD0D /* OrioApp.swift in Sources */,
+				87AA1DE6BF6CBC2D36CBF39D /* ProximityEvaluator.swift in Sources */,
 				A82EC338DDC5D7ECEE241C34 /* Session.swift in Sources */,
 				7121A1104CA1EAE81E5AA90B /* SessionManager.swift in Sources */,
 				944B48031E11AED01F9D0F29 /* SessionStore.swift in Sources */,

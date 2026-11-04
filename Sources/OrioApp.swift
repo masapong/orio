@@ -23,7 +23,11 @@ struct OrioApp: App {
             locationManager?.stopTracking()
         }
         if let session = sessionManager.activeSession {
-            locationManager.startTracking(destination: session.destination, alertDistance: session.alertDistance)
+            locationManager.startTracking(
+                destination: session.destination,
+                alertDistance: session.alertDistance,
+                isResumingTrip: true
+            )
             sessionManager.resumeRestoredSession()
         }
 

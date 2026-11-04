@@ -59,6 +59,7 @@ struct ContentView: View {
         }
         .onAppear {
             locationManager.requestAuthorization()
+            locationManager.refreshCurrentLocation()
             sessionManager.requestNotificationAuthorization()
         }
     }

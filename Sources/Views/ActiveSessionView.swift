@@ -88,6 +88,17 @@ struct ActiveSessionView: View {
                         ProgressView("Locating...")
                     }
 
+                    if locationManager.isAlreadyInsideAlertDistance && !sessionManager.isAlerting {
+                        Label("Already within \(session.alertDistanceLabel). Pick a shorter alert distance.", systemImage: "exclamationmark.triangle")
+                            .font(.caption2)
+                            .foregroundStyle(.orange)
+                            .multilineTextAlignment(.center)
+                    }
+
+                    TimelineView(.periodic(from: .now, by: 30)) { context in
+                        weakSignalWarning(now: context.date)
+                    }
+
                     VStack(spacing: 2) {
                         Text("Alert at")
                             .font(.caption2)
@@ -140,6 +151,20 @@ struct ActiveSessionView: View {
         .onDisappear {
             napTimer?.invalidate()
             mapUpdateTimer?.invalidate()
+        }
+    }
+
+    private static let weakSignalAfter: TimeInterval = 180
+
+    @ViewBuilder
+    private func weakSignalWarning(now: Date) -> some View {
+        let lastFix = locationManager.lastPreciseFixDate ?? session.startTime
+        let silence = now.timeIntervalSince(lastFix)
+        if locationManager.isTracking, !sessionManager.isAlerting, silence > Self.weakSignalAfter {
+            Label("Weak GPS signal for \(Int(silence / 60)) min. Distance may be out of date.", systemImage: "location.slash")
+                .font(.caption2)
+                .foregroundStyle(.orange)
+                .multilineTextAlignment(.center)
         }
     }
 
