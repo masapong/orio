@@ -12,9 +12,7 @@ targets:
     platform: watchOS
     sources:
       - Sources
-      - path: Resources
-        excludes:
-          - "*.png"
+      - Resources
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.orio.Orio
       INFOPLIST_FILE: Resources/Info.plist

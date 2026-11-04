@@ -75,7 +75,7 @@ struct ContentView: View {
             Image(systemName: "bed.double.fill")
                 .font(.system(size: 32))
                 .foregroundStyle(.cyan)
-            Text("Nap safely on transit")
+            Text("Rest easy on transit")
                 .font(.footnote)
                 .foregroundStyle(.secondary)
 
