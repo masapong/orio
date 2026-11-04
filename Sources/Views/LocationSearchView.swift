@@ -86,13 +86,16 @@ struct LocationSearchView: View {
                 let search = MKLocalSearch(request: request)
                 let response = try await search.start()
 
-                let destinations = response.mapItems.map { item in
-                    Destination(
-                        name: item.name ?? "Unknown",
-                        coordinate: item.placemark.coordinate,
-                        address: formatAddress(from: item.placemark)
-                    )
-                }
+                var seen = Set<UUID>()
+                let destinations = response.mapItems
+                    .map { item in
+                        Destination(
+                            name: item.name ?? "Unknown",
+                            coordinate: item.placemark.coordinate,
+                            address: formatAddress(from: item.placemark)
+                        )
+                    }
+                    .filter { seen.insert($0.id).inserted }
 
                 if !Task.isCancelled {
                     await MainActor.run {
