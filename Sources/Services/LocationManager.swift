@@ -18,6 +18,7 @@ class LocationManager: NSObject, ObservableObject, @preconcurrency CLLocationMan
     var onProximityReached: (() -> Void)?
 
     private var hasFiredProximity = false
+    private var backgroundActivity: CLBackgroundActivitySession?
 
     override init() {
         super.init()
@@ -46,6 +47,9 @@ class LocationManager: NSObject, ObservableObject, @preconcurrency CLLocationMan
         }
 
         isTracking = true
+        if backgroundActivity == nil {
+            backgroundActivity = CLBackgroundActivitySession()
+        }
         manager.startUpdatingLocation()
 
         // If we already have a recent location, immediately compute distance
@@ -57,6 +61,8 @@ class LocationManager: NSObject, ObservableObject, @preconcurrency CLLocationMan
     func stopTracking() {
         isTracking = false
         manager.stopUpdatingLocation()
+        backgroundActivity?.invalidate()
+        backgroundActivity = nil
         targetDestination = nil
         alertDistance = nil
         distanceToDestination = nil

@@ -11,17 +11,29 @@ class SessionManager: NSObject, ObservableObject, UNUserNotificationCenterDelega
     var onSessionEnded: (() -> Void)?
 
     private let totalKey = "totalNapMinutes"
+    private let alarmRuntime: AlarmRuntimeController
     private var alarmTimer: Timer?
     private var alarmNotificationIDs: [String] = []
 
     static let stopAlarmActionIdentifier = "STOP_ALARM_ACTION"
     static let alertCategoryIdentifier = "ARRIVAL_ALERT"
 
-    override init() {
+    init(alarmRuntime: AlarmRuntimeController) {
+        self.alarmRuntime = alarmRuntime
         super.init()
         totalNapMinutes = UserDefaults.standard.integer(forKey: totalKey)
         setupNotificationCategories()
         UNUserNotificationCenter.current().delegate = self
+        alarmRuntime.onSystemAlarmStopped = { [weak self] in
+            self?.endSession()
+        }
+    }
+
+    /// Smart-alarm sessions can only be scheduled while the app is active and expire after
+    /// 30 minutes, so every return to the foreground re-arms the wrist-down alarm.
+    func appDidBecomeActive() {
+        guard activeSession != nil, !isAlerting else { return }
+        alarmRuntime.arm()
     }
 
     private func setupNotificationCategories() {
@@ -50,6 +62,7 @@ class SessionManager: NSObject, ObservableObject, UNUserNotificationCenterDelega
     func startSession(_ session: NapSession) {
         activeSession = session
         isAlerting = false
+        alarmRuntime.arm()
     }
 
     func endSession() {
@@ -61,6 +74,7 @@ class SessionManager: NSObject, ObservableObject, UNUserNotificationCenterDelega
             }
         }
         stopAlerting()
+        alarmRuntime.disarm()
         activeSession = nil
         onSessionEnded?()
     }
@@ -84,6 +98,7 @@ class SessionManager: NSObject, ObservableObject, UNUserNotificationCenterDelega
     }
 
     private func startAlarmLoop() {
+        alarmRuntime.soundAlarm()
         fireHapticPattern()
         sendImmediateAlarmNotification()
         schedulePersistentNotifications()

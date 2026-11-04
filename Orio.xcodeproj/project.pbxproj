@@ -10,6 +10,7 @@
 		04DB04741E66A594728131BA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF64453806574A4236180AA3 /* LocationManager.swift */; };
 		0D4B7BDABE92D7B2284CFB25 /* AlertSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383CFC89E6595784EC1A80B5 /* AlertSettingsView.swift */; };
 		1ADF41AA43CF071A6322842C /* DistanceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DBBCFDD30652C9A3D905F0 /* DistanceFormatter.swift */; };
+		279D68657583AEA5DF267776 /* AlarmRuntimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942C6C334DF97F453783BFF /* AlarmRuntimeController.swift */; };
 		34197B703B1AFD3DED244B8C /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5B72F72B6E0153F08B2C63 /* LocationSearchView.swift */; };
 		5E04D60752A338832E24155F /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = B464836B7E3CE113696397D6 /* Destination.swift */; };
 		614CD5B268AB09EFBF2A86CF /* DestinationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D718B83D487915E3774FA095 /* DestinationStore.swift */; };
@@ -26,6 +27,7 @@
 		00A375B2CBCEE4BBC4D65978 /* OrioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrioApp.swift; sourceTree = "<group>"; };
 		157E8B6711472095EB387704 /* Orio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		383CFC89E6595784EC1A80B5 /* AlertSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSettingsView.swift; sourceTree = "<group>"; };
+		4942C6C334DF97F453783BFF /* AlarmRuntimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRuntimeController.swift; sourceTree = "<group>"; };
 		5B85D1F55A78F663D1D51A98 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		672ACE0E4ECCCE0C90644876 /* Orio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Orio.entitlements; sourceTree = "<group>"; };
 		8E5B72F72B6E0153F08B2C63 /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		EDD748A57047E935776FD192 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4942C6C334DF97F453783BFF /* AlarmRuntimeController.swift */,
 				D718B83D487915E3774FA095 /* DestinationStore.swift */,
 				DF64453806574A4236180AA3 /* LocationManager.swift */,
 				5B85D1F55A78F663D1D51A98 /* SessionManager.swift */,
@@ -192,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED5F1C4948D34710AC9F4B24 /* ActiveSessionView.swift in Sources */,
+				279D68657583AEA5DF267776 /* AlarmRuntimeController.swift in Sources */,
 				0D4B7BDABE92D7B2284CFB25 /* AlertSettingsView.swift in Sources */,
 				F17290B4BDB233AFD4E0EA8C /* ContentView.swift in Sources */,
 				5E04D60752A338832E24155F /* Destination.swift in Sources */,

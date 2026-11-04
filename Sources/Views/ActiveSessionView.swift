@@ -6,6 +6,7 @@ import UIKit
 struct ActiveSessionView: View {
     @EnvironmentObject var locationManager: LocationManager
     @EnvironmentObject var sessionManager: SessionManager
+    @EnvironmentObject var alarmRuntime: AlarmRuntimeController
     let session: NapSession
 
     @State private var napTimer: Timer?
@@ -89,6 +90,10 @@ struct ActiveSessionView: View {
                             .foregroundStyle(.cyan)
                     }
 
+                    if !sessionManager.isAlerting {
+                        wristDownAlarmStatus
+                    }
+
                     if sessionManager.isAlerting {
                         Text("WAKE UP")
                             .font(.title3.bold())
@@ -128,6 +133,21 @@ struct ActiveSessionView: View {
         .onDisappear {
             napTimer?.invalidate()
             mapUpdateTimer?.invalidate()
+        }
+    }
+
+    @ViewBuilder
+    private var wristDownAlarmStatus: some View {
+        if let until = alarmRuntime.armedUntil {
+            Label("Wrist-down alarm until \(until.formatted(date: .omitted, time: .shortened))", systemImage: "alarm")
+                .font(.caption2)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+        } else if !alarmRuntime.isArmed {
+            Label("Wrist-down alarm off; notifications only", systemImage: "exclamationmark.triangle")
+                .font(.caption2)
+                .foregroundStyle(.orange)
+                .multilineTextAlignment(.center)
         }
     }
 

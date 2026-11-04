@@ -12,7 +12,9 @@ targets:
     platform: watchOS
     sources:
       - Sources
-      - Resources
+      - path: Resources
+        excludes:
+          - "*.png"
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.orio.Orio
       INFOPLIST_FILE: Resources/Info.plist
@@ -35,11 +37,14 @@ targets:
         NSLocationAlwaysAndWhenInUseUsageDescription: "Orio tracks your position during naps to notify you near your stop."
         UIBackgroundModes:
           - location
+        WKBackgroundModes:
+          - alarm
     entitlements:
       path: Resources/Orio.entitlements
       properties:
         com.apple.developer.location.push: true
         com.apple.developer.maps: true
+        com.apple.developer.usernotifications.time-sensitive: true
 
 schemes:
   Orio:
