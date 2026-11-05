@@ -33,16 +33,17 @@ Traditional time-based alarms fall short on public transit because of unpredicta
   - 🚇 **Subway** (`tram.tunnel.fill`)
   - 🚌 **Bus** (`bus.fill`)
 - 🔔 **Multi-Stage Wakeup System**:
-  - **Repeating Dual Haptics**: Alternates `.notification` and `.failure` haptic taps every 1.5 seconds to reliably wake heavy sleepers.
-  - **Immediate Time-Sensitive Notification**: Bypasses standard Do Not Disturb / Focus modes with `interruptionLevel = .timeSensitive`.
+  - **Wrist-Down Alarm**: A smart-alarm `WKExtendedRuntimeSession` is armed when the trip starts (and re-armed whenever Orio comes back to the foreground). On arrival it plays repeating alarm haptics with the system alarm UI even while the wrist is down. watchOS limits each session to 30 minutes; after that, the notifications below are the fallback until you open Orio again.
+  - **Repeating Dual Haptics**: While Orio is on screen, alternates `.notification` and `.failure` haptic taps every 1.5 seconds.
+  - **Immediate Time-Sensitive Notification**: Uses the Time Sensitive Notifications entitlement and `interruptionLevel = .timeSensitive`, so alarms break through Focus modes (including Sleep) that allow time-sensitive notifications.
   - **Interactive Notification Action**: Dismiss the alarm with an actionable "Stop Alarm" button directly on the watch notification lock screen.
   - **Persistent Escalation Queue**: Pre-schedules 20 follow-up alert notifications spaced 10 seconds apart to prevent falling back asleep.
   - **High-Contrast Visual Warning**: Active display turns deep red with a prominent "WAKE UP" banner.
 - 🔍 **Station & Location Search**: Integrated with Apple MapKit (`MKLocalSearch`) with 300ms debounce for instant search across train stations, transit hubs, and custom addresses.
 - ⚡ **Smart Station Suggestions**:
   - **Nearby Stations**: Automatically calculates geodesic distances to major transit stations and displays the closest stops.
-  - **Favorites & Most Used**: Star any station directly from the dashboard, trip setup, or context menu for instant 1-tap starts.
-  - **Recent History**: Remembers your recent stops with automatic LRU eviction and swipe/context menu deletion.
+  - **Favorites & Most Used**: Star any station with the star button, a swipe on any row, or from trip setup for instant 1-tap starts.
+  - **Recent History**: Remembers your recent stops with automatic LRU eviction; swipe left on a row to remove it.
 - 🗺️ **Interactive Map Integration**:
   - **Pre-trip Map Preview**: Visualizes your destination pin alongside your current location with custom zoom controls and safe boundary clamping.
   - **Live Dynamic Snapshot**: Background `MKMapSnapshotter` renders an ambient route overview on the active nap HUD.
@@ -58,22 +59,31 @@ Traditional time-based alarms fall short on public transit because of unpredicta
 The project is written in modern **SwiftUI** and conforms to Apple's latest watchOS conventions:
 
 ```
-napsafe-watch/
-├── project.yml                     # XcodeGen project specification
+orio/
+├── project.yml                     # XcodeGen project specification (source of truth)
 ├── Orio.xcodeproj                  # Generated Xcode project
+├── NapsafeWatch.xcodeproj          # Generated alias kept only for the Xcode Cloud workflow
+├── scripts/generate-project.sh     # Regenerates both projects from project.yml
+├── Design/icon-sources/            # Original app icon artwork (not bundled)
 ├── Resources/
-│   ├── Info.plist                  # Background location modes & descriptions
-│   ├── Orio.entitlements           # Location push & Map entitlements
+│   ├── Info.plist                  # Background modes (location, smart alarm) & descriptions
+│   ├── Orio.entitlements           # Time Sensitive Notifications entitlement
+│   ├── PrivacyInfo.xcprivacy       # Privacy manifest
 │   └── Assets.xcassets             # App icons & color assets
 └── Sources/
-    ├── OrioApp.swift               # App entry point & service coordination
+    ├── OrioApp.swift               # App entry point, service wiring & session restore
     ├── Models/
-    │   ├── Destination.swift       # Destination entity & coordinate Codable support
+    │   ├── Destination.swift       # Destination entity, stable IDs & coordinate Codable support
     │   └── Session.swift           # NapSession model & TransportMode enum
+    ├── Logic/
+    │   ├── LocationFixFilter.swift # Accuracy/age filtering of GPS fixes
+    │   └── ProximityEvaluator.swift# Arrival trigger rules & adaptive location precision
     ├── Services/
+    │   ├── AlarmRuntimeController.swift # Smart-alarm extended runtime session (wrist-down alarm)
     │   ├── DestinationStore.swift  # Persistence (UserDefaults), Favorites & Station catalog
     │   ├── LocationManager.swift   # CoreLocation wrapper, background tracking & distance calculation
-    │   └── SessionManager.swift    # Session lifecycle, repeating haptics & notification scheduling
+    │   ├── SessionManager.swift    # Session lifecycle, repeating haptics & notification scheduling
+    │   └── SessionStore.swift      # Persists the active trip across relaunches
     ├── Utilities/
     │   └── DistanceFormatter.swift # Unified distance formatting extension (Double/CLLocationDistance)
     └── Views/
@@ -88,7 +98,7 @@ napsafe-watch/
 
 | Component | Responsibility |
 |---|---|
-| [`LocationManager`](Sources/Services/LocationManager.swift) | Configures `CLLocationManager` with `allowsBackgroundLocationUpdates = true` and `kCLLocationAccuracyBest`. Calculates real-time distance and fires proximity alerts even while the watch screen is asleep. |
+| [`LocationManager`](Sources/Services/LocationManager.swift) | Configures `CLLocationManager` for background updates (held open by a `CLBackgroundActivitySession`), ignores imprecise or stale fixes, and fires the arrival alert after two consecutive fixes inside the alert distance. |
 | [`SessionManager`](Sources/Services/SessionManager.swift) | Orchestrates the alarm sequence, manages repeating `WKInterfaceDevice` haptics, handles interactive `UNNotificationCategory` responses, and tallies cumulative nap minutes. |
 | [`DestinationStore`](Sources/Services/DestinationStore.swift) | Persists user destinations in `UserDefaults`, manages favorites and recents, and calculates nearby presets from static pre-configured transit coordinates. |
 | [`DistanceFormatter`](Sources/Utilities/DistanceFormatter.swift) | Single source of truth for formatting distance measurements (`m` and `km`) across the application. |
@@ -101,7 +111,7 @@ napsafe-watch/
 ```mermaid
 flowchart TD
     A[Launch App] --> B[Select / Search Destination]
-    B --> C[Configure Alert Distance: 800m / 1000m / 1500m]
+    B --> C[Configure Alert Distance: 500 m to 2 km]
     C --> D[Start Nap Session]
     D --> E[CoreLocation Background Tracking Active]
     E --> F{Distance <= Alert Distance?}
@@ -130,7 +140,7 @@ flowchart TD
    - Real-time search powered by Apple's `MKLocalSearch`.
    - Displays station/place name with formatted district/locality subtitles.
 3. **Trip Setup (`AlertSettingsView`)**:
-   - Select wakeup distance: `800m`, `1 km`, or `1.5 km`.
+   - Select wakeup distance: `500 m`, `800 m`, `1 km`, `1.5 km`, or `2 km`.
    - Choose transport type: Train, Subway, or Bus.
    - Preview stop on interactive map before starting.
 4. **Map Preview (`MapPreviewView`)**:
@@ -163,8 +173,8 @@ flowchart TD
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/masapong/napsafe-watch.git
-   cd napsafe-watch
+   git clone https://github.com/masapong/orio.git
+   cd orio
    ```
 2. Open `Orio.xcodeproj` in Xcode:
    ```bash
@@ -181,8 +191,8 @@ If you prefer generating project files declaratively:
 # Install XcodeGen if you haven't already
 brew install xcodegen
 
-# Generate project from project.yml
-xcodegen generate
+# Generate Orio.xcodeproj (and the NapsafeWatch.xcodeproj alias) from project.yml
+./scripts/generate-project.sh
 
 # Open generated project
 open Orio.xcodeproj
@@ -193,6 +203,14 @@ open Orio.xcodeproj
 ## 🧪 Testing & Simulation
 
 Because Orio relies on GPS motion, you can test it on the simulator or at your desk:
+
+### Unit Tests
+The `OrioTests` target covers the arrival trigger rules, GPS fix filtering, destination ID stability and migration, and active session persistence/restore:
+
+```bash
+xcodebuild test -project Orio.xcodeproj -scheme Orio \
+  -destination 'platform=watchOS Simulator,name=Apple Watch Series 11 (42mm)'
+```
 
 ### 1. Built-in Demo Alert (Debug Mode)
 When running a `DEBUG` build, starting any nap session reveals an orange **Demo Alert** button. Tapping it immediately fires the full wake-up sequence (haptic vibrations, notifications, and alert screen).
@@ -213,9 +231,12 @@ Orio requires the following permissions and capabilities configured in `Resource
 - **Location When In Use & Always** (`NSLocationWhenInUseUsageDescription`, `NSLocationAlwaysAndWhenInUseUsageDescription`):
   Allows background location updates while the watch display is dimmed or asleep during your commute.
 - **Background Location Mode** (`UIBackgroundModes: ["location"]`):
-  Enables continuous proximity monitoring without the watchOS runtime suspending the app.
-- **Time-Sensitive Notifications** (`UNAuthorizationOptions: [.alert, .sound]`):
-  Ensures alarm notifications pierce through transit Do Not Disturb / Sleep Focus profiles.
+  Keeps location updates flowing while the app is in the background during a trip.
+- **Smart Alarm Session** (`WKBackgroundModes: ["alarm"]`):
+  Lets Orio play repeating alarm haptics through the system alarm UI while it is not frontmost (up to 30 minutes per armed session).
+- **Time-Sensitive Notifications** (`com.apple.developer.usernotifications.time-sensitive` entitlement):
+  Lets alarm notifications break through Focus modes that allow time-sensitive notifications.
+- **Privacy manifest** (`PrivacyInfo.xcprivacy`): declares `UserDefaults` access (reason `CA92.1`); no tracking or data collection.
 
 ---
 

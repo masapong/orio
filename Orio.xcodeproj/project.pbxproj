@@ -7,37 +7,66 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0403B1F0988BE2830CF1F7EF /* DestinationIdentityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7EAA817DA3AD333CBB8E80 /* DestinationIdentityTests.swift */; };
 		04DB04741E66A594728131BA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF64453806574A4236180AA3 /* LocationManager.swift */; };
 		0D4B7BDABE92D7B2284CFB25 /* AlertSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383CFC89E6595784EC1A80B5 /* AlertSettingsView.swift */; };
 		1ADF41AA43CF071A6322842C /* DistanceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DBBCFDD30652C9A3D905F0 /* DistanceFormatter.swift */; };
+		279D68657583AEA5DF267776 /* AlarmRuntimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942C6C334DF97F453783BFF /* AlarmRuntimeController.swift */; };
 		34197B703B1AFD3DED244B8C /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5B72F72B6E0153F08B2C63 /* LocationSearchView.swift */; };
 		5E04D60752A338832E24155F /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = B464836B7E3CE113696397D6 /* Destination.swift */; };
 		614CD5B268AB09EFBF2A86CF /* DestinationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D718B83D487915E3774FA095 /* DestinationStore.swift */; };
 		7121A1104CA1EAE81E5AA90B /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B85D1F55A78F663D1D51A98 /* SessionManager.swift */; };
+		87AA1DE6BF6CBC2D36CBF39D /* ProximityEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB056325F417887062DB283 /* ProximityEvaluator.swift */; };
+		891CBD5DA38ACD33D2C727D9 /* LocationFixFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33A0CFD0E668A01FFA30D09 /* LocationFixFilterTests.swift */; };
 		9382A3AA5BC4690D9E1826FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA99240CB7F447E97594FA1E /* Assets.xcassets */; };
+		944B48031E11AED01F9D0F29 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B049FC7137CB72BB59CC04EC /* SessionStore.swift */; };
 		A82EC338DDC5D7ECEE241C34 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33E59968ADDAAD4A75D66BB /* Session.swift */; };
 		B93255A45513793B2044A2A5 /* MapPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C2AB34B4B5E7DE239A0876 /* MapPreviewView.swift */; };
+		BE941AC71DB32CF7E36409E5 /* LocationFixFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7615F82C98503CC16047162D /* LocationFixFilter.swift */; };
+		D3C0176C78F2F2114FAE0CAD /* SessionRestoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE83904365D5F32D3E745C77 /* SessionRestoreTests.swift */; };
 		DBB474B2B619920DDE41FD0D /* OrioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A375B2CBCEE4BBC4D65978 /* OrioApp.swift */; };
+		EAE444BB911233BE8306A057 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = E34555D6C4FA7298FA446AC8 /* PrivacyInfo.xcprivacy */; };
 		ED5F1C4948D34710AC9F4B24 /* ActiveSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FA76F56ECA1D66D4F8E53 /* ActiveSessionView.swift */; };
 		F17290B4BDB233AFD4E0EA8C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28D383E97FE34661F9B8D0D /* ContentView.swift */; };
+		FC912B65E7B3181A22B35CD2 /* ProximityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D438D2DDC7F410564D0EB4D3 /* ProximityTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A5C896291FD7D505E52E4D29 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A66B69B9A9F8762DBB11D50 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC6F4C72FD7A2C454574A22E;
+			remoteInfo = Orio;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		00A375B2CBCEE4BBC4D65978 /* OrioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrioApp.swift; sourceTree = "<group>"; };
 		157E8B6711472095EB387704 /* Orio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DB056325F417887062DB283 /* ProximityEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximityEvaluator.swift; sourceTree = "<group>"; };
 		383CFC89E6595784EC1A80B5 /* AlertSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSettingsView.swift; sourceTree = "<group>"; };
+		4942C6C334DF97F453783BFF /* AlarmRuntimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRuntimeController.swift; sourceTree = "<group>"; };
 		5B85D1F55A78F663D1D51A98 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		672ACE0E4ECCCE0C90644876 /* Orio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Orio.entitlements; sourceTree = "<group>"; };
+		7615F82C98503CC16047162D /* LocationFixFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFixFilter.swift; sourceTree = "<group>"; };
 		8E5B72F72B6E0153F08B2C63 /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
+		B049FC7137CB72BB59CC04EC /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		B464836B7E3CE113696397D6 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		BBCEF4BD8732A56E459AD90C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BE83904365D5F32D3E745C77 /* SessionRestoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRestoreTests.swift; sourceTree = "<group>"; };
+		C33A0CFD0E668A01FFA30D09 /* LocationFixFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFixFilterTests.swift; sourceTree = "<group>"; };
 		C33E59968ADDAAD4A75D66BB /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		C6C2AB34B4B5E7DE239A0876 /* MapPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPreviewView.swift; sourceTree = "<group>"; };
+		CA7EAA817DA3AD333CBB8E80 /* DestinationIdentityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationIdentityTests.swift; sourceTree = "<group>"; };
 		CA99240CB7F447E97594FA1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0DBBCFDD30652C9A3D905F0 /* DistanceFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceFormatter.swift; sourceTree = "<group>"; };
+		D438D2DDC7F410564D0EB4D3 /* ProximityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximityTests.swift; sourceTree = "<group>"; };
 		D718B83D487915E3774FA095 /* DestinationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationStore.swift; sourceTree = "<group>"; };
+		DC53C760ADD7BBE7F2D9F5E8 /* OrioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF64453806574A4236180AA3 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		E30FA76F56ECA1D66D4F8E53 /* ActiveSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSessionView.swift; sourceTree = "<group>"; };
+		E34555D6C4FA7298FA446AC8 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		F28D383E97FE34661F9B8D0D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -46,8 +75,37 @@
 			isa = PBXGroup;
 			children = (
 				157E8B6711472095EB387704 /* Orio.app */,
+				DC53C760ADD7BBE7F2D9F5E8 /* OrioTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		505D7AEFAA1B37B5B8B0524A /* OrioTests */ = {
+			isa = PBXGroup;
+			children = (
+				CA7EAA817DA3AD333CBB8E80 /* DestinationIdentityTests.swift */,
+				C33A0CFD0E668A01FFA30D09 /* LocationFixFilterTests.swift */,
+				D438D2DDC7F410564D0EB4D3 /* ProximityTests.swift */,
+				BE83904365D5F32D3E745C77 /* SessionRestoreTests.swift */,
+			);
+			path = OrioTests;
+			sourceTree = "<group>";
+		};
+		520B92E0FAD3652C3512D5E8 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				7615F82C98503CC16047162D /* LocationFixFilter.swift */,
+				2DB056325F417887062DB283 /* ProximityEvaluator.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		79EB1AD0592B003C035721DF /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				505D7AEFAA1B37B5B8B0524A /* OrioTests */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		A85F9E8EA1C8A239B19A9083 = {
@@ -55,6 +113,7 @@
 			children = (
 				DF5313D2901AA3A9420C44F1 /* Resources */,
 				C8B50FBF0AD47FF9E2EA6FBE /* Sources */,
+				79EB1AD0592B003C035721DF /* Tests */,
 				0FD3666D18C1589FC37051DA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				00A375B2CBCEE4BBC4D65978 /* OrioApp.swift */,
+				520B92E0FAD3652C3512D5E8 /* Logic */,
 				CB9F1366584356176479116C /* Models */,
 				EDD748A57047E935776FD192 /* Services */,
 				C8764CC6966444657A6130D9 /* Utilities */,
@@ -94,6 +154,7 @@
 				CA99240CB7F447E97594FA1E /* Assets.xcassets */,
 				BBCEF4BD8732A56E459AD90C /* Info.plist */,
 				672ACE0E4ECCCE0C90644876 /* Orio.entitlements */,
+				E34555D6C4FA7298FA446AC8 /* PrivacyInfo.xcprivacy */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -101,9 +162,11 @@
 		EDD748A57047E935776FD192 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4942C6C334DF97F453783BFF /* AlarmRuntimeController.swift */,
 				D718B83D487915E3774FA095 /* DestinationStore.swift */,
 				DF64453806574A4236180AA3 /* LocationManager.swift */,
 				5B85D1F55A78F663D1D51A98 /* SessionManager.swift */,
+				B049FC7137CB72BB59CC04EC /* SessionStore.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -123,6 +186,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		58A9E6D1D2D3DEB0CD6C7522 /* OrioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B798222D781A396C193FD1E3 /* Build configuration list for PBXNativeTarget "OrioTests" */;
+			buildPhases = (
+				02820C84AB33E20A2F61D306 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B793A1AA8A1DC65C980B8303 /* PBXTargetDependency */,
+			);
+			name = OrioTests;
+			packageProductDependencies = (
+			);
+			productName = OrioTests;
+			productReference = DC53C760ADD7BBE7F2D9F5E8 /* OrioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		AC6F4C72FD7A2C454574A22E /* Orio */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 891C7244F2647BF600B992F3 /* Build configuration list for PBXNativeTarget "Orio" */;
@@ -150,6 +231,10 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
+					58A9E6D1D2D3DEB0CD6C7522 = {
+						DevelopmentTeam = 97R97H732K;
+						ProvisioningStyle = Automatic;
+					};
 					AC6F4C72FD7A2C454574A22E = {
 						DevelopmentTeam = 97R97H732K;
 						ProvisioningStyle = Automatic;
@@ -171,6 +256,7 @@
 			projectRoot = "";
 			targets = (
 				AC6F4C72FD7A2C454574A22E /* Orio */,
+				58A9E6D1D2D3DEB0CD6C7522 /* OrioTests */,
 			);
 		};
 /* End PBXProject section */
@@ -181,32 +267,56 @@
 			buildActionMask = 2147483647;
 			files = (
 				9382A3AA5BC4690D9E1826FA /* Assets.xcassets in Resources */,
+				EAE444BB911233BE8306A057 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		02820C84AB33E20A2F61D306 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0403B1F0988BE2830CF1F7EF /* DestinationIdentityTests.swift in Sources */,
+				891CBD5DA38ACD33D2C727D9 /* LocationFixFilterTests.swift in Sources */,
+				FC912B65E7B3181A22B35CD2 /* ProximityTests.swift in Sources */,
+				D3C0176C78F2F2114FAE0CAD /* SessionRestoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9DE9FD7E6EBB6FDDA22B58A8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				ED5F1C4948D34710AC9F4B24 /* ActiveSessionView.swift in Sources */,
+				279D68657583AEA5DF267776 /* AlarmRuntimeController.swift in Sources */,
 				0D4B7BDABE92D7B2284CFB25 /* AlertSettingsView.swift in Sources */,
 				F17290B4BDB233AFD4E0EA8C /* ContentView.swift in Sources */,
 				5E04D60752A338832E24155F /* Destination.swift in Sources */,
 				614CD5B268AB09EFBF2A86CF /* DestinationStore.swift in Sources */,
 				1ADF41AA43CF071A6322842C /* DistanceFormatter.swift in Sources */,
+				BE941AC71DB32CF7E36409E5 /* LocationFixFilter.swift in Sources */,
 				04DB04741E66A594728131BA /* LocationManager.swift in Sources */,
 				34197B703B1AFD3DED244B8C /* LocationSearchView.swift in Sources */,
 				B93255A45513793B2044A2A5 /* MapPreviewView.swift in Sources */,
 				DBB474B2B619920DDE41FD0D /* OrioApp.swift in Sources */,
+				87AA1DE6BF6CBC2D36CBF39D /* ProximityEvaluator.swift in Sources */,
 				A82EC338DDC5D7ECEE241C34 /* Session.swift in Sources */,
 				7121A1104CA1EAE81E5AA90B /* SessionManager.swift in Sources */,
+				944B48031E11AED01F9D0F29 /* SessionStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B793A1AA8A1DC65C980B8303 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC6F4C72FD7A2C454574A22E /* Orio */;
+			targetProxy = A5C896291FD7D505E52E4D29 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		28C1FEDCA3E2DCC13B52B4FA /* Release */ = {
@@ -280,6 +390,48 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		58363DADC835346509741C1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 97R97H732K;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.orio.OrioTests;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Orio.app/Orio";
+			};
+			name = Debug;
+		};
+		627D23B9E41D5B3F72E36015 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 97R97H732K;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.orio.OrioTests;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Orio.app/Orio";
 			};
 			name = Release;
 		};
@@ -381,6 +533,15 @@
 			buildConfigurations = (
 				A1C9163CF3AD365BC5E4B57E /* Debug */,
 				28C1FEDCA3E2DCC13B52B4FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B798222D781A396C193FD1E3 /* Build configuration list for PBXNativeTarget "OrioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58363DADC835346509741C1C /* Debug */,
+				627D23B9E41D5B3F72E36015 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

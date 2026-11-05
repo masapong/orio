@@ -35,19 +35,40 @@ targets:
         NSLocationAlwaysAndWhenInUseUsageDescription: "Orio tracks your position during naps to notify you near your stop."
         UIBackgroundModes:
           - location
+        WKBackgroundModes:
+          - alarm
     entitlements:
       path: Resources/Orio.entitlements
       properties:
-        com.apple.developer.location.push: true
-        com.apple.developer.maps: true
+        com.apple.developer.usernotifications.time-sensitive: true
+
+  OrioTests:
+    type: bundle.unit-test
+    platform: watchOS
+    sources:
+      - Tests/OrioTests
+    dependencies:
+      - target: Orio
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.orio.OrioTests
+      GENERATE_INFOPLIST_FILE: YES
+      SUPPORTED_PLATFORMS: "watchos watchsimulator"
+      TARGETED_DEVICE_FAMILY: 4
+      CODE_SIGN_STYLE: Automatic
+      DEVELOPMENT_TEAM: 97R97H732K
 
 schemes:
   Orio:
     build:
       targets:
         Orio: all
+        OrioTests: [test]
     run:
       config: Debug
+    test:
+      config: Debug
+      targets:
+        - OrioTests
     profile:
       config: Release
     analyze:

@@ -6,6 +6,7 @@ import UIKit
 struct ActiveSessionView: View {
     @EnvironmentObject var locationManager: LocationManager
     @EnvironmentObject var sessionManager: SessionManager
+    @EnvironmentObject var alarmRuntime: AlarmRuntimeController
     let session: NapSession
 
     @State private var napTimer: Timer?
@@ -64,7 +65,20 @@ struct ActiveSessionView: View {
                     }
                     .padding(.top, 6)
 
-                    if let d = currentDistance {
+                    if sessionManager.isRestoredSession {
+                        Label("Trip resumed after Orio restarted", systemImage: "arrow.clockwise")
+                            .font(.caption2)
+                            .foregroundStyle(.yellow)
+                            .multilineTextAlignment(.center)
+                    }
+
+                    if locationManager.isAccessDenied {
+                        locationProblem(
+                            title: "Location is off",
+                            message: locationManager.errorMessage ?? "Orio can't tell when you're near your stop.",
+                            systemImage: "location.slash.fill"
+                        )
+                    } else if let d = currentDistance {
                         VStack(spacing: 2) {
                             Text(d.formattedDistance)
                                 .font(.system(size: 38, weight: .bold, design: .rounded))
@@ -76,8 +90,27 @@ struct ActiveSessionView: View {
                         .padding(12)
                         .background(.ultraThinMaterial)
                         .clipShape(RoundedRectangle(cornerRadius: 14))
+                    } else if locationManager.authorizationStatus == .notDetermined {
+                        locationProblem(
+                            title: "Waiting for permission",
+                            message: "Allow location access so Orio can track your trip.",
+                            systemImage: "location.circle"
+                        )
+                    } else if let error = locationManager.errorMessage {
+                        locationProblem(title: "Can't get location", message: error, systemImage: "location.slash")
                     } else {
                         ProgressView("Locating...")
+                    }
+
+                    if locationManager.isAlreadyInsideAlertDistance && !sessionManager.isAlerting {
+                        Label("Already within \(session.alertDistanceLabel). Pick a shorter alert distance.", systemImage: "exclamationmark.triangle")
+                            .font(.caption2)
+                            .foregroundStyle(.orange)
+                            .multilineTextAlignment(.center)
+                    }
+
+                    TimelineView(.periodic(from: .now, by: 30)) { context in
+                        weakSignalWarning(now: context.date)
                     }
 
                     VStack(spacing: 2) {
@@ -87,6 +120,10 @@ struct ActiveSessionView: View {
                         Text(session.alertDistanceLabel)
                             .font(.headline)
                             .foregroundStyle(.cyan)
+                    }
+
+                    if !sessionManager.isAlerting {
+                        wristDownAlarmStatus
                     }
 
                     if sessionManager.isAlerting {
@@ -131,6 +168,53 @@ struct ActiveSessionView: View {
         }
     }
 
+    private func locationProblem(title: String, message: String, systemImage: String) -> some View {
+        VStack(spacing: 4) {
+            Image(systemName: systemImage)
+                .font(.title2)
+                .foregroundStyle(.orange)
+            Text(title)
+                .font(.headline)
+            Text(message)
+                .font(.caption2)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+        }
+        .padding(12)
+        .frame(maxWidth: .infinity)
+        .background(.ultraThinMaterial)
+        .clipShape(RoundedRectangle(cornerRadius: 14))
+    }
+
+    private static let weakSignalAfter: TimeInterval = 180
+
+    @ViewBuilder
+    private func weakSignalWarning(now: Date) -> some View {
+        let lastFix = locationManager.lastPreciseFixDate ?? session.startTime
+        let silence = now.timeIntervalSince(lastFix)
+        if locationManager.isTracking, !sessionManager.isAlerting, silence > Self.weakSignalAfter {
+            Label("Weak GPS signal for \(Int(silence / 60)) min. Distance may be out of date.", systemImage: "location.slash")
+                .font(.caption2)
+                .foregroundStyle(.orange)
+                .multilineTextAlignment(.center)
+        }
+    }
+
+    @ViewBuilder
+    private var wristDownAlarmStatus: some View {
+        if let until = alarmRuntime.armedUntil {
+            Label("Wrist-down alarm until \(until.formatted(date: .omitted, time: .shortened))", systemImage: "alarm")
+                .font(.caption2)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+        } else if !alarmRuntime.isArmed {
+            Label("Wrist-down alarm off; notifications only", systemImage: "exclamationmark.triangle")
+                .font(.caption2)
+                .foregroundStyle(.orange)
+                .multilineTextAlignment(.center)
+        }
+    }
+
     private func startNapTimer() {
         napMinutes = Int(Date().timeIntervalSince(session.startTime) / 60)
         let timer = Timer(timeInterval: 10, repeats: true) { _ in
@@ -146,7 +230,6 @@ struct ActiveSessionView: View {
     private func stopSession() {
         napTimer?.invalidate()
         mapUpdateTimer?.invalidate()
-        locationManager.stopTracking()
         sessionManager.endSession()
     }
 

@@ -30,6 +30,10 @@
 	</array>
 	<key>WKApplication</key>
 	<true/>
+	<key>WKBackgroundModes</key>
+	<array>
+		<string>alarm</string>
+	</array>
 	<key>WKWatchOnly</key>
 	<true/>
 </dict>

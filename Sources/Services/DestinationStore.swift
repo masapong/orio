@@ -4,13 +4,26 @@ import CoreLocation
 class DestinationStore: ObservableObject {
     @Published var favorites: [Destination] = []
     @Published var recent: [Destination] = []
-    @Published var topUsed: [Destination] = []
+    /// Every used destination with its use count, most used first.
+    @Published private(set) var usage: [Destination] = []
 
+    var topUsed: [Destination] {
+        Array(usage.prefix(Self.topUsedLimit))
+    }
+
+    static let recentLimit = 10
+    static let topUsedLimit = 5
+    static let usageLimit = 50
+    static let currentSchemaVersion = 2
+
+    private let defaults: UserDefaults
     private let favoritesKey = "favorites"
     private let recentKey = "recent"
-    private let topUsedKey = "topUsed"
+    private let usageKey = "topUsed"
+    private let schemaVersionKey = "destinationsSchemaVersion"
 
-    init() {
+    init(defaults: UserDefaults = .standard) {
+        self.defaults = defaults
         load()
     }
 
@@ -26,23 +39,19 @@ class DestinationStore: ObservableObject {
         save()
     }
 
-    func recordUse(_ destination: Destination) {
-        // Update recent
-        recent.removeAll { $0.id == destination.id }
+    func recordUse(_ destination: Destination, at date: Date = Date()) {
+        let previousCount = usage.first(where: { $0.id == destination.id })?.useCount ?? 0
         var updated = destination
-        updated.lastUsed = Date()
-        updated.useCount += 1
-        recent.insert(updated, at: 0)
-        if recent.count > 10 { recent.removeLast() }
+        updated.lastUsed = date
+        updated.useCount = previousCount + 1
 
-        // Update top used
-        if let idx = topUsed.firstIndex(where: { $0.id == destination.id }) {
-            topUsed[idx] = updated
-        } else {
-            topUsed.append(updated)
-        }
-        topUsed.sort { $0.useCount > $1.useCount }
-        if topUsed.count > 5 { topUsed.removeLast() }
+        recent.removeAll { $0.id == updated.id }
+        recent.insert(updated, at: 0)
+        recent = Array(recent.prefix(Self.recentLimit))
+
+        usage.removeAll { $0.id == updated.id }
+        usage.append(updated)
+        usage = Array(Self.sortedByUse(usage).prefix(Self.usageLimit))
 
         save()
     }
@@ -93,39 +102,96 @@ class DestinationStore: ObservableObject {
     }
 
     func nearbyDestinations(current: CLLocationCoordinate2D, limit: Int = 5) -> [Destination] {
-        Self.defaultStations.sorted {
-            let d1 = CLLocation(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude)
-                .distance(from: CLLocation(latitude: current.latitude, longitude: current.longitude))
-            let d2 = CLLocation(latitude: $1.coordinate.latitude, longitude: $1.coordinate.longitude)
-                .distance(from: CLLocation(latitude: current.latitude, longitude: current.longitude))
-            return d1 < d2
-        }.prefix(limit).map { $0 }
+        let here = CLLocation(latitude: current.latitude, longitude: current.longitude)
+        func distance(_ destination: Destination) -> CLLocationDistance {
+            CLLocation(latitude: destination.coordinate.latitude, longitude: destination.coordinate.longitude)
+                .distance(from: here)
+        }
+        return Self.defaultStations.sorted { distance($0) < distance($1) }.prefix(limit).map { $0 }
     }
 
+    private static func sortedByUse(_ destinations: [Destination]) -> [Destination] {
+        destinations.sorted {
+            $0.useCount != $1.useCount ? $0.useCount > $1.useCount : $0.lastUsed > $1.lastUsed
+        }
+    }
+
+    // MARK: - Persistence
+
     private func load() {
-        if let data = UserDefaults.standard.data(forKey: favoritesKey),
-           let decoded = try? JSONDecoder().decode([Destination].self, from: data) {
-            favorites = decoded
+        favorites = decode(favoritesKey)
+        recent = decode(recentKey)
+        usage = decode(usageKey)
+
+        if defaults.integer(forKey: schemaVersionKey) < Self.currentSchemaVersion {
+            migrateToStableIDs()
+            defaults.set(Self.currentSchemaVersion, forKey: schemaVersionKey)
+            save()
         }
-        if let data = UserDefaults.standard.data(forKey: recentKey),
-           let decoded = try? JSONDecoder().decode([Destination].self, from: data) {
-            recent = decoded
+    }
+
+    /// Schema 1 gave every station and search result a random UUID, so the same place could be
+    /// saved several times under different IDs. Re-key everything with stable IDs and merge.
+    private func migrateToStableIDs() {
+        let oldRecent = recent
+        let oldUsage = usage
+
+        favorites = Self.uniqued(favorites.map { $0.withStableID() })
+
+        recent = Self.uniqued(
+            oldRecent.map { $0.withStableID() }.sorted { $0.lastUsed > $1.lastUsed }
+        )
+
+        // Schema 1 only kept 5 "top used" entries and rarely incremented counts, so also count
+        // places that only survive in Recent. Copies of the same old entry share one count;
+        // different old entries for the same place add up.
+        var countsByOldID: [UUID: Destination] = [:]
+        for entry in oldUsage + oldRecent {
+            if let existing = countsByOldID[entry.id] {
+                var merged = existing
+                merged.useCount = max(existing.useCount, entry.useCount, 1)
+                merged.lastUsed = max(existing.lastUsed, entry.lastUsed)
+                countsByOldID[entry.id] = merged
+            } else {
+                var first = entry
+                first.useCount = max(entry.useCount, 1)
+                countsByOldID[entry.id] = first
+            }
         }
-        if let data = UserDefaults.standard.data(forKey: topUsedKey),
-           let decoded = try? JSONDecoder().decode([Destination].self, from: data) {
-            topUsed = decoded
+        var merged: [UUID: Destination] = [:]
+        for entry in countsByOldID.values.map({ $0.withStableID() }) {
+            if var existing = merged[entry.id] {
+                existing.useCount += entry.useCount
+                existing.lastUsed = max(existing.lastUsed, entry.lastUsed)
+                merged[entry.id] = existing
+            } else {
+                merged[entry.id] = entry
+            }
         }
+        usage = Array(Self.sortedByUse(Array(merged.values)).prefix(Self.usageLimit))
+        recent = Array(recent.prefix(Self.recentLimit))
+    }
+
+    private static func uniqued(_ destinations: [Destination]) -> [Destination] {
+        var seen = Set<UUID>()
+        return destinations.filter { seen.insert($0.id).inserted }
+    }
+
+    private func decode(_ key: String) -> [Destination] {
+        guard let data = defaults.data(forKey: key),
+              let decoded = try? JSONDecoder().decode([Destination].self, from: data) else { return [] }
+        return decoded
     }
 
     private func save() {
         if let data = try? JSONEncoder().encode(favorites) {
-            UserDefaults.standard.set(data, forKey: favoritesKey)
+            defaults.set(data, forKey: favoritesKey)
         }
         if let data = try? JSONEncoder().encode(recent) {
-            UserDefaults.standard.set(data, forKey: recentKey)
+            defaults.set(data, forKey: recentKey)
         }
-        if let data = try? JSONEncoder().encode(topUsed) {
-            UserDefaults.standard.set(data, forKey: topUsedKey)
+        if let data = try? JSONEncoder().encode(usage) {
+            defaults.set(data, forKey: usageKey)
         }
     }
 }
