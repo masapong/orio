@@ -1,0 +1,130 @@
+2026-11-18 11:37:42 +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x7739945500; archive(resolved)="<IDEArchive: 0x77597ea1b0>", distributionTask(resolved)="2", distributionDestination(resolved)="1", distributionMethod(resolved)="<IDEDistributionMethodWatchOSAdHoc: 0x773cad30d0>", team(resolved)="<IDEProvisioningDisambiguatableBasicTeam: 0x775166b080; teamID='97R97H732K', teamName='Masaru Sato', teamType='Individual', username='masaru@bogmon.com', isFreeProvisioningTeam='0'>">
+	Chain (16, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x7739945500; archive = "<IDEArchive: 0x77597ea1b0>", distributionMethod="<IDEDistributionMethodWatchOSAdHoc: 0x773cad30d0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x775166b080; teamID='97R97H732K', teamName='Masaru Sato', teamType='Individual', username='masaru@bogmon.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionProcessingPipelineContext: 0x7739945800; archive = "<IDEArchive: 0x77597ea1b0>", distributionMethod="<IDEDistributionMethodWatchOSAdHoc: 0x773cad30d0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x775166b080; teamID='97R97H732K', teamName='Masaru Sato', teamType='Individual', username='masaru@bogmon.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7758e09180; archive = "<IDEArchive: 0x77597ea1b0>", distributionMethod="<IDEDistributionMethodWatchOSAdHoc: 0x773cad30d0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x775166b080; teamID='97R97H732K', teamName='Masaru Sato', teamType='Individual', username='masaru@bogmon.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7758e08780; archive = "<IDEArchive: 0x77597ea1b0>", distributionMethod="<IDEDistributionMethodWatchOSAdHoc: 0x773cad30d0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x775166b080; teamID='97R97H732K', teamName='Masaru Sato', teamType='Individual', username='masaru@bogmon.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7758e08500; archive = "<IDEArchive: 0x77597ea1b0>", distributionMethod="<IDEDistributionMethodWatchOSAdHoc: 0x773cad30d0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x775166b080; teamID='97R97H732K', teamName='Masaru Sato', teamType='Individual', username='masaru@bogmon.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7758e08280; archive = "<IDEArchive: 0x77597ea1b0>", distributionMethod="<IDEDistributionMethodWatchOSAdHoc: 0x773cad30d0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x775166b080; teamID='97R97H732K', teamName='Masaru Sato', teamType='Individual', username='masaru@bogmon.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7758e08000; archive = "<IDEArchive: 0x77597ea1b0>", distributionMethod="<IDEDistributionMethodWatchOSAdHoc: 0x773cad30d0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x775166b080; teamID='97R97H732K', teamName='Masaru Sato', teamType='Individual', username='masaru@bogmon.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x775976f200; archive = "<IDEArchive: 0x77597ea1b0>", distributionMethod="<IDEDistributionMethodWatchOSAdHoc: 0x773cad30d0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x775166b080; teamID='97R97H732K', teamName='Masaru Sato', teamType='Individual', username='masaru@bogmon.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7759760780; archive = "<IDEArchive: 0x77597ea1b0>", distributionMethod="<IDEDistributionMethodWatchOSAdHoc: 0x773cad30d0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x775166b080; teamID='97R97H732K', teamName='Masaru Sato', teamType='Individual', username='masaru@bogmon.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7759760f00; archive = "<IDEArchive: 0x77597ea1b0>", distributionMethod="<IDEDistributionMethodWatchOSAdHoc: 0x773cad30d0>", team="(null)">
+	<IDEDistributionContext: 0x7759760a00; archive = "<IDEArchive: 0x77597ea1b0>", distributionMethod="<IDEDistributionMethodWatchOSAdHoc: 0x773cad30d0>", team="(null)">
+	<IDEDistributionContext: 0x7759760c80; archive = "<IDEArchive: 0x77597ea1b0>", distributionMethod="<IDEDistributionMethodWatchOSAdHoc: 0x773cad30d0>", team="(null)">
+	<IDEDistributionContext: 0x77595c0280; archive = "<IDEArchive: 0x77597ea1b0>", distributionMethod="<IDEDistributionMethodWatchOSAdHoc: 0x773cad30d0>", team="(null)">
+	<IDEDistributionContext: 0x775976c000; archive = "<IDEArchive: 0x77597ea1b0>", distributionMethod="(null)", team="(null)">
+	<IDEDistributionContext: 0x775978d400; archive = "<IDEArchive: 0x77597ea1b0>", distributionMethod="(null)", team="(null)">
+	<IDEDistributionContext: 0x775978d180; archive = "<IDEArchive: 0x77597ea1b0>", distributionMethod="(null)", team="(null)">
+</IDEDistributionProcessingPipelineContext: 0x7739945500>
+2026-11-18 11:37:42 +0000  Processing step: IDEDistributionCreateDestRootStep
+2026-11-18 11:37:42 +0000  Processing step: IDEDistributionCopyItemStep
+2026-11-18 11:37:42 +0000  Running /usr/bin/ditto '-V' '/Users/masarusato/Library/Developer/Xcode/Archives/2026-11-18/Orio 11-18-26, 20.37.xcarchive/Products/Applications/Orio.app' '/var/folders/x0/1l5txtsx3xz3qq1135n408wr0000gn/T/XcodeDistPipeline.~~~RWm0Kx/Root/Payload/Orio.app'
+2026-11-18 11:37:42 +0000  >>> Copying /Users/masarusato/Library/Developer/Xcode/Archives/2026-11-18/Orio 11-18-26, 20.37.xcarchive/Products/Applications/Orio.app 
+2026-11-18 11:37:42 +0000  copying file ./_CodeSignature/CodeResources ... 
+2026-11-18 11:37:42 +0000  cloned ./_CodeSignature/CodeResources
+2026-11-18 11:37:42 +0000  copying file ./Assets.car ... 
+2026-11-18 11:37:42 +0000  cloned ./Assets.car
+2026-11-18 11:37:42 +0000  copying file ./PrivacyInfo.xcprivacy ... 
+2026-11-18 11:37:42 +0000  cloned ./PrivacyInfo.xcprivacy
+2026-11-18 11:37:42 +0000  copying file ./embedded.mobileprovision ... 
+2026-11-18 11:37:42 +0000  cloned ./embedded.mobileprovision
+2026-11-18 11:37:42 +0000  copying file ./Info.plist ... 
+2026-11-18 11:37:42 +0000  cloned ./Info.plist
+2026-11-18 11:37:42 +0000  copying file ./Orio ... 
+2026-11-18 11:37:42 +0000  cloned ./Orio
+2026-11-18 11:37:42 +0000  copying file ./PkgInfo ... 
+2026-11-18 11:37:42 +0000  cloned ./PkgInfo
+2026-11-18 11:37:42 +0000  /usr/bin/ditto exited with 0
+2026-11-18 11:37:42 +0000  Processing step: IDEDistributionEmbedProfileStep
+2026-11-18 11:37:42 +0000  Processing step: IDEDistributionInfoPlistStep
+2026-11-18 11:37:42 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2026-11-18 11:37:42 +0000  Processing step: IDEDistributionAppThinningPlistStep
+2026-11-18 11:37:42 +0000  Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2026-11-18 11:37:42 +0000  Processing step: IDEDistributionSymbolsStep
+2026-11-18 11:37:42 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2026-11-18 11:37:42 +0000  Processing step: IDEDistributionAppThinningStep
+2026-11-18 11:37:42 +0000  Skipping step: IDEDistributionAppThinningStep because it said so
+2026-11-18 11:37:42 +0000  Processing step: IDEDistributionArchThinningStep
+2026-11-18 11:37:42 +0000  Archs to thin for item /Users/masarusato/Library/Developer/Xcode/Archives/2026-11-18/Orio 11-18-26, 20.37.xcarchive/Products/Applications/Orio.app are []
+2026-11-18 11:37:42 +0000  Processing step: IDEDistributionODRStep
+2026-11-18 11:37:42 +0000  Processing step: IDEDistributionStripXattrsStep
+2026-11-18 11:37:42 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2026-11-18 11:37:42 +0000  Processing step: IDEDistributionCodesignStep
+2026-11-18 11:37:42 +0000  Entitlements for <IDEDistributionItem: 0x77406cb060; bundleID='com.orio.Orio', path='<DVTFilePath:0x773f4e25e0:'/Users/masarusato/Library/Developer/Xcode/Archives/2026-11-18/Orio 11-18-26, 20.37.xcarchive/Products/Applications/Orio.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x77406c85a0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7739d8e300; name='Apple Development: Masaru Sato (X77D65A324)', hash='76A73837E5E24A75BAF85E79938601481D6AD19E', serialNumber='38492E4BA8982C6CECB157619803C076', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2026-04-10 10:58:53 +0000''>', entitlements='{
+    "application-identifier" = "97R97H732K.com.orio.Orio";
+    "com.apple.developer.team-identifier" = 97R97H732K;
+    "com.apple.developer.usernotifications.time-sensitive" = 1;
+    "get-task-allow" = 1;
+}', teamID='97R97H732K', identifier='com.orio.Orio', executablePath='<DVTFilePath:0x773f4e2dc0:'/Users/masarusato/Library/Developer/Xcode/Archives/2026-11-18/Orio 11-18-26, 20.37.xcarchive/Products/Applications/Orio.app/Orio'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "97R97H732K.com.orio.Orio";
+    "com.apple.developer.team-identifier" = 97R97H732K;
+    "com.apple.developer.usernotifications.time-sensitive" = 1;
+    "get-task-allow" = 0;
+}
+2026-11-18 11:37:42 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2026-11-18 11:37:42 +0000  Entitlements for <IDEDistributionItem: 0x77406cb060; bundleID='com.orio.Orio', path='<DVTFilePath:0x773f4e25e0:'/Users/masarusato/Library/Developer/Xcode/Archives/2026-11-18/Orio 11-18-26, 20.37.xcarchive/Products/Applications/Orio.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x77406c85a0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7739d8e300; name='Apple Development: Masaru Sato (X77D65A324)', hash='76A73837E5E24A75BAF85E79938601481D6AD19E', serialNumber='38492E4BA8982C6CECB157619803C076', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2026-04-10 10:58:53 +0000''>', entitlements='{
+    "application-identifier" = "97R97H732K.com.orio.Orio";
+    "com.apple.developer.team-identifier" = 97R97H732K;
+    "com.apple.developer.usernotifications.time-sensitive" = 1;
+    "get-task-allow" = 1;
+}', teamID='97R97H732K', identifier='com.orio.Orio', executablePath='<DVTFilePath:0x773f4e2dc0:'/Users/masarusato/Library/Developer/Xcode/Archives/2026-11-18/Orio 11-18-26, 20.37.xcarchive/Products/Applications/Orio.app/Orio'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "97R97H732K.com.orio.Orio";
+    "com.apple.developer.team-identifier" = 97R97H732K;
+    "com.apple.developer.usernotifications.time-sensitive" = 1;
+    "get-task-allow" = 0;
+}
+2026-11-18 11:37:42 +0000  Writing entitlements for <IDEDistributionItem: 0x77406cb060; bundleID='com.orio.Orio', path='<DVTFilePath:0x773f4e25e0:'/Users/masarusato/Library/Developer/Xcode/Archives/2026-11-18/Orio 11-18-26, 20.37.xcarchive/Products/Applications/Orio.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x77406c85a0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7739d8e300; name='Apple Development: Masaru Sato (X77D65A324)', hash='76A73837E5E24A75BAF85E79938601481D6AD19E', serialNumber='38492E4BA8982C6CECB157619803C076', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2026-04-10 10:58:53 +0000''>', entitlements='{
+    "application-identifier" = "97R97H732K.com.orio.Orio";
+    "com.apple.developer.team-identifier" = 97R97H732K;
+    "com.apple.developer.usernotifications.time-sensitive" = 1;
+    "get-task-allow" = 1;
+}', teamID='97R97H732K', identifier='com.orio.Orio', executablePath='<DVTFilePath:0x773f4e2dc0:'/Users/masarusato/Library/Developer/Xcode/Archives/2026-11-18/Orio 11-18-26, 20.37.xcarchive/Products/Applications/Orio.app/Orio'>', hardenedRuntime='0'>'> to: /var/folders/x0/1l5txtsx3xz3qq1135n408wr0000gn/T/XcodeDistPipeline.~~~RWm0Kx/entitlements~~~tTESnB
+2026-11-18 11:37:42 +0000  invoking codesign: <NSConcreteTask: 0x7759323480; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    B342C69F56B70F3FF8AD2910B622383E0BD2032C,
+    "--entitlements",
+    "/var/folders/x0/1l5txtsx3xz3qq1135n408wr0000gn/T/XcodeDistPipeline.~~~RWm0Kx/entitlements~~~tTESnB",
+    "--preserve-metadata=identifier,flags,runtime,launch-constraints,library-constraints",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/x0/1l5txtsx3xz3qq1135n408wr0000gn/T/XcodeDistPipeline.~~~RWm0Kx/Root/Payload/Orio.app"
+)'>
+2026-11-18 11:38:00 +0000  codesign output: /var/folders/x0/1l5txtsx3xz3qq1135n408wr0000gn/T/XcodeDistPipeline.~~~RWm0Kx/Root/Payload/Orio.app: replacing existing signature
+/var/folders/x0/1l5txtsx3xz3qq1135n408wr0000gn/T/XcodeDistPipeline.~~~RWm0Kx/Root/Payload/Orio.app: signed app bundle with Mach-O universal (arm64 arm64_32) [com.orio.Orio]
+2026-11-18 11:38:00 +0000  Processing step: IDEDistributionZipODRItemStep
+2026-11-18 11:38:00 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2026-11-18 11:38:00 +0000  Processing step: IDEDistributionCreateIPAStep
+2026-11-18 11:38:00 +0000  Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/x0/1l5txtsx3xz3qq1135n408wr0000gn/T/XcodeDistPipeline.~~~RWm0Kx/Root' '/var/folders/x0/1l5txtsx3xz3qq1135n408wr0000gn/T/XcodeDistPipeline.~~~RWm0Kx/Packages/Orio.ipa'
+2026-11-18 11:38:00 +0000  >>> Copying /var/folders/x0/1l5txtsx3xz3qq1135n408wr0000gn/T/XcodeDistPipeline.~~~RWm0Kx/Root 
+2026-11-18 11:38:00 +0000  copying file ./Payload/Orio.app/_CodeSignature/CodeResources ... 
+2026-11-18 11:38:00 +0000  2761 bytes for ./Payload/Orio.app/_CodeSignature/CodeResources
+2026-11-18 11:38:00 +0000  copying file ./Payload/Orio.app/Assets.car ... 
+2026-11-18 11:38:00 +0000  963736 bytes for ./Payload/Orio.app/Assets.car
+copying file ./Payload/Orio.app/PrivacyInfo.xcprivacy ... 
+2026-11-18 11:38:00 +0000  598 bytes for ./Payload/Orio.app/PrivacyInfo.xcprivacy
+copying file ./Payload/Orio.app/embedded.mobileprovision ... 
+2026-11-18 11:38:00 +0000  14630 bytes for ./Payload/Orio.app/embedded.mobileprovision
+copying file ./Payload/Orio.app/Info.plist ... 
+2026-11-18 11:38:00 +0000  1150 bytes for ./Payload/Orio.app/Info.plist
+copying file ./Payload/Orio.app/Orio ... 
+2026-11-18 11:38:00 +0000  1026640 bytes for ./Payload/Orio.app/Orio
+copying file ./Payload/Orio.app/PkgInfo ... 
+2026-11-18 11:38:00 +0000  8 bytes for ./Payload/Orio.app/PkgInfo
+2026-11-18 11:38:00 +0000  /usr/bin/ditto exited with 0
+2026-11-18 11:38:00 +0000  Processing step: IDEDistributionAppStoreInformationStep
+2026-11-18 11:38:00 +0000  Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2026-11-18 11:38:00 +0000  Processing step: IDEDistributionGenerateProcessedDistributionItems
+2026-11-18 11:38:00 +0000  IDEDistributionItem init <DVTFilePath:0x7743bd5920:'/var/folders/x0/1l5txtsx3xz3qq1135n408wr0000gn/T/XcodeDistPipeline.~~~RWm0Kx/Root/Payload/Orio.app'>
+2026-11-18 11:38:00 +0000  Processing step: IDEDistributionCreateManifestStep

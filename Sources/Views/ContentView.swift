@@ -77,9 +77,11 @@ struct ContentView: View {
 
     private var header: some View {
         VStack(spacing: 4) {
-            Image(systemName: "bed.double.fill")
-                .font(.system(size: 32))
-                .foregroundStyle(.cyan)
+            Image("OrioSheep")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 32, height: 32)
+                .accessibilityLabel("Sheep")
             Text("Rest easy on transit")
                 .font(.footnote)
                 .foregroundStyle(.secondary)
